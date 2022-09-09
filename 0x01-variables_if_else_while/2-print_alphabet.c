@@ -8,9 +8,12 @@
  */
 int main(void)
 {
-	char i;
-	putchar("Lower case characters:\n");
-	for(i='a'; i<='z'; i++)
-	putchar("%c ",i);
-	return 0;
+	char a;
+
+	for (a = 'a'; ch <= 'z'; ch++)
+	{
+	putchar(a);
+	}
+	putchar('\n');
+	return (0);
 }
