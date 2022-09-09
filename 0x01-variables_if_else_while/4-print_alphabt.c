@@ -9,6 +9,7 @@
 int main(void)
 {
 	char low, omit1, omit2;
+
 	omit1 = 'q';
 	omit2 = 'e';
 
