@@ -1,43 +1,35 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
- * main - Prints numbers between 00 to 89.
+ * main - Entry point
  *
  * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	int i, e;
+	int d, p;
 
-	i = 48;
-	e = 48;
-
-	while (e < 58)
+	for (d = '0'; d < '9'; d++)
 	{
-		i = 48;
-		while (i < 58)
+		for (p = d + 1; p <= '9'; p++)
 		{
-			if (e != i && e < i)
+			if (p != d)
 			{
-				putchar(e);
-				putchar(i);
-				if (i == 57 && e == 56)
-				{
-					break;
-				}
+				putchar(d);
+				putchar(p);
+
+				if (d == '8' && p == '9')
+					continue;
+
 				putchar(',');
 				putchar(' ');
 			}
-			i++;
 		}
-		e++;
 	}
 	putchar('\n');
+
 	return (0);
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-
