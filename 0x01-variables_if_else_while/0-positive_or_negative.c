@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
+#include <unistd.h>
 /* more headers goes there */
-
+/**
+ * main - prints the outcome
+ *  
+ * Return: 0 if exited
+ */
 /* betty style doc for function main goes there */
 int main(void)
 {
