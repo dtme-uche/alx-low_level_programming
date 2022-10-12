@@ -1,43 +1,46 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "3-calc.h"
 
 /**
- * main - Searchs for an integer
+ * main - program that perfroms simple operations
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * @ac: number of arguments
- * @av: array with arguments
- *
- * Return: no return
+ * Return: Always 0 (Success)
  */
-int main(int ac, char *av[])
+int main(int argc, char *argv[])
 {
-	int num1, num2, res;
+	int arg1, arg2, result;
+	char o;
+	int (*func)(int, int);
 
-	if (ac != 4)
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (av[2][0] != '+' && av[2][0] != '-' &&
-	av[2][0] != '*' && av[2][0] != '/' && av[2][0] != '%')
+
+	arg1 = atoi(argv[1]);
+	arg2 = atoi(argv[3]);
+
+	func = get_op_func(argv[2]);
+
+	if (!func)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if (av[2][1] == '\0')
-	{
-		num1 = atoi(av[1]);
-		num2 = atoi(av[3]);
-		res = (*get_op_func(av[2]))(num1, num2);
-		printf("%d\n", res);
 
-	} else
-	{
+	o = *argv[2];
 
+	if ((o == '/' || o == '%') && arg2 == 0)
+	{
 		printf("Error\n");
-		exit(99);
+		exit(100);
 	}
+
+	result = func(arg1, arg2);
+
+	printf("%d\n", result);
+
 	return (0);
-
 }
